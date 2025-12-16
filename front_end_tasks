@@ -1,0 +1,118 @@
+History Views – Frontend Scope & Requirements
+App Scope
+
+You are building two read-only views with minimal interaction:
+
+Daily Summary View
+
+Individual Shift Summary View
+
+Each view will contain:
+
+One pie chart
+
+One data table
+
+Pie Chart
+Data (provided by backend)
+
+machine_uptime
+
+available_downtime
+
+unavailable_downtime
+
+The chart should show relative proportions only.
+Total time may be displayed separately (e.g., above the chart).
+
+Requirements
+
+Legend required (clear color → metric mapping)
+
+Tooltip on hover showing value + percentage
+
+Colors should be clean, readable, and consistent across views
+
+Frontend may compute percentages only for visualization.
+
+Data Table
+Metrics (all values come from backend)
+
+Planned runtime
+
+Total runtime
+
+Machine uptime
+
+Available downtime
+
+Unavailable downtime
+
+Total stops
+
+Machine error stops
+
+Total parts
+
+OEE
+
+No calculations or derivations should be done on the frontend.
+
+Architecture Overview
+
+All analytics data will be provided to the frontend via an API that is polled at runtime.
+
+Your primary responsibility is to design a clear internal data path so that API data can be:
+
+easily routed
+
+reused across components
+
+displayed consistently
+
+Components should be presentation-focused, accepting data via props only.
+
+Responsibilities
+I will handle:
+
+API design
+
+Backend data aggregation
+
+API polling and data retrieval in React
+
+You should focus on:
+
+Building reusable, data-driven components
+
+Ensuring clean data flow from parent views into charts and tables
+
+Keeping components flexible for future metrics without structural rewrites
+
+Technical / Integration Requirements
+
+Minimize external dependencies (use the fewest UI libraries necessary)
+
+Components should be data-in only
+
+No API calls or polling inside components
+
+Do not compute or derive analytics values
+
+Assume all numeric values come from the backend as the source of truth
+
+Creative Freedom
+
+Everything else is up to you.
+
+As long as the above constraints are respected:
+
+structure
+
+styling
+
+component organization
+
+small UX enhancements
+
+are entirely your call. Have fun with it.
